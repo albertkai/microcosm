@@ -1,0 +1,30 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+standard-app-packages
+less
+coffeescript
+underscore
+cmather:iron-router
+jeeeyul:moment-with-langs
+kidovate:pnotify
+mizzao:user-status
+arunoda:streams
+matb33:collection-hooks
+natestrauser:jquery-scrollto
+random
+jquery-waypoints
+mrt:jquery-ui
+tarang:select2
+mrt:accounts-vk
+alanning:roles
+accounts-password
+accounts-ui
+accounts-facebook
+mrt:i18n
+meteorhacks:npm
+
+
+npm-container

@@ -1,0 +1,11 @@
+#hello{
+  .top{
+    height: 600px;
+    .gradient(#7056f8, #9fd7ff, #7056f8);
+    h1{
+      font-size: 120px;
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+}

@@ -1,0 +1,178 @@
+
+<template name="johariAside">
+
+    <input id="userId" type="hidden" value="{{id}}"/>
+
+    <div class="johari-aside">
+
+        <div class="container">
+
+            <div class="johari-insert "></div>
+
+        </div>
+
+        <div class="johari-start">
+
+            <div class="container">
+
+                <h3>ДОБРОГО</h3>
+                <h4>времени суток!</h4>
+
+                <div class="circle huge">
+
+                    <p>
+                        Ваш друг<br/>
+                        {{name}} считает<br/>
+                        вас очень близким<br/>
+                        человеком, и просит вас <br/>
+                        помочь в прохождении очень<br/> интересного теста. Он <br/>
+                        называется ОКНО ДЖОХАРИ, и<br/>
+                        является одним из самых<br/>
+                        интересных и объективных<br/>
+                        психологических<br/>
+                        тестов
+                    </p>
+
+                </div>
+
+                <div class="circle small">
+
+                    <p>
+                        Сейчас вам<br/>
+                        нужно будет выбрать<br/>
+                        из предложенного списка<br/>
+                        5 свойств характера, которые<br/>
+                        наиболее полно охарактеризуют<br/>
+                        вашего друга. Пожалуйста,<br/>
+                        отнеситесь к этому<br/>
+                        серьезно:)
+                    </p>
+
+                </div>
+
+                <button id="johari-go">ПОЕХАЛИ</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+
+
+<template name="johari">
+
+    <div id="johari-container" class="flip-cont-wrap">
+
+        <div class="verso">
+
+            <div class="flip-cont">
+
+                <h3>ВЫБЕРИТЕ СПИСОК ЧЕРТ, ПРИСУЩИХ, КАК ВЫ СЧИТАЕТЕ, ВАШЕЙ ЛИЧНОСТИ:</h3>
+
+                {{>johariTraits}}
+
+                <button id="submit-johari">ВЫБРАТЬ</button>
+
+            </div>
+
+        </div>
+
+        <div class="recto">
+
+            <div id="registration-finished" class="flip-cont">
+
+                <h3 class="bigger">Спасибо!</h3>
+                <h4>Результаты сохранены</h4>
+                <p>Вот ссылка, перейдя по которой близкие вам люди смогут также охарактеризовать вашу личность:</p>
+                <h4><a href="http://microcosm.com/johari/{{currentUser._id}}">http://microcosm.com/johari/{{currentUser._id}}</a></h4>
+                <p>Мы рекомендуем скидывать ее людям, которые вас достаточно хорошо знают, тогда результаты будут намного объективнее</p>
+
+                <h3>Вот и все! Регистрация закончена!</h3>
+                <h4>Надеюсь это не заняло у вас много времени!</h4>
+
+                <button id="registration-finish"><i class="fa fa-user"></i> МОЙ ПРОФИЛЬ!</button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</template>
+
+
+<template name="johariAsideContent">
+
+    <div id="johari-container" class="flip-cont-wrap">
+
+        <div class="verso">
+
+            <div class="flip-cont">
+
+                <h3>ВЫБЕРИТЕ СПИСОК ЧЕРТ, ПРИСУЩИХ, КАК ВЫ СЧИТАЕТЕ, ЛИЧНОСТИ ВАШЕГО ДРУГА:</h3>
+
+                {{>johariTraits}}
+
+                <button id="submit-johari">ВЫБРАТЬ</button>
+
+            </div>
+
+        </div>
+
+        <div class="recto">
+
+            <div id="johari-aside-final" class="flip-cont">
+
+                <h3>Спасибо!</h3>
+                <h4>Ваши результаты приняты! {{name}} скажет вам спасибо!</h4>
+                <p>Джохари - это одна из методик тестирования на новом революционном проекте, который поможет вам:</p>
+                <p>1 - лучше узнать себя, свои склонности, особенности характера и прочее</p>
+                <p>2 - лучше лучше своих друзей, насколько вы совместимы, почему у вас согут быть конфликты и как их избежать</p>
+                <p>3 - и наконец - начать общаться со множеством интересных людей со всего света, которые максимально подходят именно вам!</p>
+                <p>{{username}} ждет вас на проекте:</p>
+
+
+                <button>m i c r o c o s m</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+
+<template name="johariTraits">
+
+    <div class="traits">
+
+        <div class="column">
+
+        </div>
+        <div class="column">
+
+        </div>
+        <div class="column">
+
+        </div>
+        <div class="column">
+
+        </div>
+        <div class="column">
+
+        </div>
+
+    </div>
+
+</template>
+
+
+<template name="johariYours">
+
+    <h1>Упсики, вы уже заполняли свое окно. Эту ссылку нужно скидывать близким людям.</h1>
+
+</template>

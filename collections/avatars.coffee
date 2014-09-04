@@ -1,0 +1,1 @@
+@Avatars = new Meteor.Collection('avatars')

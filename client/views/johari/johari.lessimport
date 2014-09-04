@@ -1,0 +1,272 @@
+#johari-container{
+
+  h3{
+    font-size: 22px;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    padding: 0 20px;
+    text-transform: uppercase;
+    color: @blue;
+    font-weight: 300;
+    margin-top: 30px;
+    padding: 0px 30px;
+  }
+
+  .traits{
+    width: 100%;
+    height: 320px;
+    margin-top: 30px;
+    .column{
+      float: left;
+      float: left;
+      width: 20%;
+      padding-left: 20px;
+      .trait{
+        cursor: pointer;
+        span{
+          padding: 3px 8px;
+          .rounded(15px);
+          .transition(.4s);
+          color: @gray;
+        }
+        &:hover{
+          span{
+            background: #fbffc0;
+          }
+        }
+        &._selected{
+          span{
+            background: @green;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  button{
+    float: right;
+    margin-right: 30px;
+  }
+}
+
+
+
+.johari-aside{
+  width: 100%;
+  height: 100%;
+  background: url(/img/johari_bg_aside.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  min-height: 730px;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+  .johari-start{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    visibility: hidden;
+    &._visible{
+      visibility: visible;
+    }
+    *{
+      .transition(1s);
+    }
+    h4{
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+    h3{
+      display: inline-block;
+      background: @blue;
+      padding: 10px 40px;
+      color: #ffffff;
+      margin-top: 110px;
+      font-size: 34px;
+      font-weight: 400;
+      margin-left: 30px;
+      margin-right: 400px;
+      visibility: hidden;
+      opacity: 0;
+      .translate(-70px, 0);
+      &._visible{
+        visibility: visible;
+        opacity: 1;
+        .translate(0, 0);
+      }
+    }
+    h4{
+      display: inline-block;
+      background: @blue;
+      padding: 10px 40px;
+      color: white;
+      font-size: 24px;
+      font-weight: 200;
+      margin-left: 30px;
+      margin-right: 100px;
+      visibility: hidden;
+      opacity: 0;
+      .translate(-70px, 0);
+      text-transform: uppercase;
+      &._visible{
+        visibility: visible;
+        opacity: 1;
+        .translate(0, 0);
+      }
+    }
+    .circle{
+      .transition(1.2s);
+      &.huge{
+        position: absolute;
+        right: 10%;
+        top: 17%;
+        width: 340px;
+        height: 340px;
+      }
+      &.small{
+        margin-top: 115px;
+        width: 290px;
+        height: 290px;
+        background: rgba(215, 86, 156, 0.9);
+        margin-left: 50px;
+        font-style: italic;
+      }
+      width: 400px;
+      height: 400px;
+      padding-top: 55px;
+      .rounded(440px);
+      background: rgba(136, 134, 200, .9);
+      font-weight: 200;
+      font-size: 16px;
+      margin-top: 50px;
+      visibility: hidden;
+      opacity: 0;
+      -webkit-transform: rotateY(90deg);
+      -moz-transform: rotateY(90deg);
+      -ms-transform: rotateY(90deg);
+      -o-transform: rotateY(90deg);
+      transform: rotateY(90deg);
+      &._visible{
+        visibility: visible;
+        opacity: 1;
+        -webkit-transform: rotateY(0);
+        -moz-transform: rotateY(0);
+        -ms-transform: rotateY(0);
+        -o-transform: rotateY(0);
+        transform: rotateY(0);
+      }
+      >p{
+        color: #ffffff;
+        text-align: center;
+      }
+
+    }
+    button{
+      position: absolute;
+      right: 18%;
+      top: 82%;
+      background: @green;
+      border-color: @green;
+      visibility: hidden;
+      opacity: 0;
+      .translate(170px, 0);
+      &._visible{
+        visibility: visible;
+        opacity: 1;
+        .translate(0, 0);
+      }
+      &:hover{
+        background: @blue;
+        border-color: @blue;
+      }
+    }
+  }
+
+}
+
+#registration-finished{
+
+  h3, h4, p{
+    text-align: center;
+  }
+  h3{
+    font-size: 30px;
+    font-weight: 100;
+    margin-top: 42px;
+    &.bigger{
+      font-size: 38px;
+    }
+  }
+  h4{
+    color: #24ff9c;
+    font-weight: 200;
+    font-size: 26px;
+    a{
+      color: @gray;
+    }
+
+  }
+  p{
+    color: @gray-light;
+  }
+  button{
+    display: block;
+    margin: 0 auto;
+    float: none;
+    font-size: 32px;
+    .rounded(40px);
+    padding: 9px 34px;
+    font-weight: 400;
+    margin: 25px auto;
+    font-weight: 100;
+  }
+
+}
+
+
+#johari-aside-final{
+
+  h3, h4, p{
+    text-align: center;
+  }
+  h3{
+    font-size: 30px;
+    font-weight: 100;
+    margin-top: 42px;
+    &.bigger{
+      font-size: 38px;
+    }
+  }
+  h4{
+    color: #24ff9c;
+    font-weight: 200;
+    font-size: 26px;
+    a{
+      color: @gray;
+    }
+
+  }
+  p{
+    color: @gray-light;
+  }
+  button{
+    display: block;
+    margin: 0 auto;
+    float: none;
+    font-size: 32px;
+    .rounded(40px);
+    padding: 9px 34px;
+    font-weight: 400;
+    margin: 25px auto;
+    font-weight: 100;
+  }
+
+}
+
+body{
+  background-color: @blue-light;
+}

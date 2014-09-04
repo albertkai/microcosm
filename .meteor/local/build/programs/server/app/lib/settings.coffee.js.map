@@ -1,0 +1,1 @@
+{"version":3,"file":"/lib/settings.coffee.js","sources":["settings.coffee"],"names":[],"mappings":";AAAA,IAAG,MAAM,CAAC,QAAV;AAEE,MAAC,SAAD,GAAY,EAAZ,CAFF;;A","sourcesContent":["if Meteor.isClient\n\n  @Settings = {}"]}

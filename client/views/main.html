@@ -1,0 +1,191 @@
+<head>
+    <title>Loading...</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.ico"/>
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml"/>
+</head>
+<body>
+
+</body>
+
+
+<template name="mainLayout">
+
+    <div id="main-loader"></div>
+
+    <!--<div id="system-process" class="_visible">-->
+        <!--<div class="wrap">-->
+            <!--<img src="/img/loading.gif" alt=""/>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div id="go-up">
+        ^<br/>
+        В<br/>
+        В<br/>
+        Е<br/>
+        Р<br/>
+        Х<br/>
+    </div>
+
+    {{>modal}}
+
+    {{>messages}}
+
+    <div id="perspective" class="perspective">
+        <div class="main-wrap">
+            <div class="wrapper">
+                {{>yield}}
+            </div>
+        </div>
+        <div id="main-menu">
+
+            <div class="logo">
+                <p>M I C R O C O S M</p>
+                <p>the real social network</p>
+            </div>
+            
+            <div class="avatar">
+                <img src="{{currentUser.profile.avatar}}" alt=""/>
+            </div>
+
+            <p class="first-name">{{currentUser.profile.firstName}}</p>
+            <p class="last-name">{{currentUser.profile.secondName}}</p>
+            <a href="#" class="logout">выйти</a>
+
+            <hr/>
+
+            <nav>
+                <ul>
+                    <li><a href="/cosmos"><i class="fa fa-globe"></i> Общение</a></li>
+                    <li><a href="/people"><i class="fa fa-users"></i> Люди</a></li>
+                    <li><a href="/news"><i class="fa fa-calendar"></i> В жизни</a></li>
+                    <li><a id="open-settings" href="/settings"><i class="fa fa-cogs"></i> Настройки</a></li>
+                </ul>
+            </nav>
+
+            <hr/>
+
+            <h4>Новости</h4>
+
+        </div>
+        <div id="notifications-cont">
+
+            <h3><i class="fa fa-bell"></i> НОВОСТИ</h3>
+            <h4>Мои оповещения <button><i class="fa fa-angle-up"></i></button></h4>
+            <div id="user-updates" class="news-cont">
+                <div class="filters">
+                    <ul>
+                        <li>
+                            <button>1</button>
+                        </li>
+                        <li>
+                            <button>2</button>
+                        </li>
+                        <li>
+                            <button>3</button>
+                        </li>
+                        <li>
+                            <button>4</button>
+                        </li>
+                        <li>
+                            <button>5</button>
+                        </li>
+                    </ul>
+                </div>
+                <ul>
+                    <li>
+                        <div>
+                            <div>
+                                <div><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5><a href="">Андрей Андреев</a> <span>2 часа назад</span></h5>
+                            <p>Приглашает вас на встречу <a href="">Неделя Франции в Доме Кино 23.01.2014</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div>
+                                <div><i class="fa fa-heart"></i></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5><a href="">Лидия власова</a> <span>3 часа назад</span></h5>
+                            <p>Лайкнула вашу страничку</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div>
+                                <div><i class="fa fa-envelope"></i></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5><a href="">Лида Юрьева</a> <span>3 часа назад</span></h5>
+                            <p>"Привет, судя по всему мы очень похожа, хотелось бы проверить действительно ли это так))"</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h4>Обновления друзей <button><i class="fa fa-angle-up"></i></button></h4>
+            <div id="users-updates" class="news-cont">
+                <ul>
+                    <li>
+                        <div>
+                            <div>
+                                <div><i class="fa fa-users"></i></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5><a href="">Андрей Андреев</a> <span>2 часа назад</span></h5>
+                            <p>Добавил в друзья <a href="">Никиту Старцева</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div>
+                                <div><i class="fa fa-users"></i></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5><a href="">Люба Дюжева</a> <span>2 часа назад</span></h5>
+                            <p>Прошла тест "Соционика"</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div>
+                                <div><i class="fa fa-users"></i></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5><a href="">Кирилл ахметов</a> <span>3 часа назад</span></h5>
+                            <p>Посетит премьеру фильма "Чугунный скороход" в кинотеатре Аврора 23.09.2015</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</template>
+
+
+
+<template name="registrationLayout">
+    {{>yield}}
+</template>
+
+
+
+
+
+
+
+
+
+

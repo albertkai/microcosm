@@ -1,0 +1,1 @@
+{"version":3,"file":"/collections/avatars.coffee.js","sources":["avatars.coffee"],"names":[],"mappings":";AAAA,IAAC,QAAD,GAAe,UAAM,CAAC,UAAP,CAAkB,SAAlB,CAAf;A","sourcesContent":["@Avatars = new Meteor.Collection('avatars')"]}

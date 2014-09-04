@@ -1,0 +1,2 @@
+)]}'
+{"version":3,"file":"/client/coffee/startup.coffee.js","sources":["startup.coffee"],"names":[],"mappings":";AAAA,MAAM,CAAC,OAAP,CAAe;SAEb,GAAG,CAAC,KAAJ,CAAU;IACR,QAAQ;MACN;cAAM,OAAN;OADM;KADA;IAIR,MAAM,UAJE;IAKR,QAAQ,CALA;GAAV,EAFa;CAAf;A","sourcesContent":["Meteor.startup ->\n\n  ion.sound({\n    sounds: [\n      name: \"glass\"\n    ],\n    path: \"/sounds/\",\n    volume: 1\n  })\n\n#  moment.lang('ru')"]}

@@ -1,0 +1,252 @@
+<template name="messages">
+
+    <div class="recorder _initial">
+
+        <div id="close-recorder" class="close-it"><i class="fa fa-times"></i></div>
+
+        <div class="top-controls">
+            <p>00:00 / 00:34</p>
+            <div class="line-cont">
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="central-circle">
+
+            <button id="start-rec">
+                <i class="fa fa-microphone"></i>
+                <p><i class="fa fa-circle"></i> rec</p>
+            </button>
+            <button id="stop-rec">
+                <p>0:23/1:00</p>
+                <i class="fa fa-stop"></i>
+            </button>
+
+            <div>
+                <button id="send-audio"><i class="fa fa-check"></i><br/>ОТПРАВИТЬ</button>
+                <button id="rec-new">НОВОЕ</button>
+            </div>
+
+        </div>
+
+        <div class="lower-controls _paused">
+            <div>
+                <button class="play"><i class="fa fa-play"></i></button>
+            </div>
+            <div>
+                <button class="backward"><i class="fa fa-backward"></i></button>
+                <button class="pause"><i class="fa fa-pause"></i></button>
+                <button class="forward"><i class="fa fa-forward"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-page messages _opened">
+
+        <div class="close-it"><i class="fa fa-times"></i></div>
+
+        <div class="modal-insert">
+
+            <div class="heading"><i class="fa fa-envelope"></i> Lazytalk</div>
+
+            <div class="body">
+                <aside>
+                    <div class="search">
+                        <input id="messagesSearch" type="text" placeholder="поиск..."/>
+                        <button id="newMessage"><i class="fa fa-edit"></i></button>
+                    </div>
+                    <ul id="threads-list">
+                        <!--<li class="_active">-->
+                            <!--<div>-->
+                                <!--<img src="http://graph.facebook.com/1276327615/picture/?type=large" alt="avatar"/>-->
+                            <!--</div>-->
+                            <!--<div>-->
+                                <!--<h5>Альберт Константинопольский <sup><i class="fa fa-circle"></i></sup></h5>-->
+                                <!--<p>"Привет братишка, давно не виделись, хотел бы тебя пригласить на концерт крутой группы"</p>-->
+                                <!--<p><span>13:24</span> <span>сегодня</span></p>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li class="_unwatched _writing">-->
+                            <!--<div>-->
+                                <!--<img src="http://graph.facebook.com/1276327615/picture/?type=large" alt="avatar"/>-->
+                            <!--</div>-->
+                            <!--<div>-->
+                                <!--<h5>Альберт Константинопольский</h5>-->
+                                <!--<p>"Привет братишка, давно не виделись, хотел бы тебя пригласить на концерт крутой группы"</p>-->
+                                <!--<p><span>13:24</span> <span>сегодня</span></p>-->
+                                <!--<div class="writing-message"><i class="fa fa-pencil"></i></div>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                            {{#each currentUser.profile.com.messenger.threads}}
+                            <li data-threadId="{{threadId}}" class="{{#unless allRead}}_unwatched{{/unless}}">
+                                <div>
+                                    <img src="{{#each members}}{{avatar}}{{/each}}" alt="avatar"/>
+                                </div>
+                                <div>
+                                    <h5>{{#each members}}{{firstName}} {{lastName}}{{/each}}</h5>
+                                    <p>{{{showMessage lastMessage.message lastMessage.type}}}</p>
+                                    <p><span>{{showDate lastMessage.date}}</span></p>
+                                    <div class="writing-message"><i class="fa fa-pencil"></i></div>
+                                </div>
+                            </li>
+                            {{/each}}
+                    </ul>
+                    <div class="filters">
+                        <div class="button-group">
+                            <button id="all-time-messages" class="_active">Все время</button>
+                            <button id="daily-messages">Сегодня</button>
+                            <button id="weekly-messages">Непрочит.</button>
+                        </div>
+                    </div>
+                </aside>
+                <div id="messages-insert"></div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</template>
+
+
+<template name="messagesCont">
+
+    <div class="grad top"></div>
+
+    <div id="messages-top">
+        <a href="#">{{getHeaderName members}}<sup> <i class="fa fa-circle"></i></sup></a>
+        <button id="record-audio"><span>rec <i class="fa fa-circle"></i></span> аудио</button>
+    </div>
+    <div id="messages-cont">
+
+        {{#each messages}}
+            {{>message}}
+        {{/each}}
+        <!--<div class="message audio">-->
+            <!--<div class="avatar"><img src="http://graph.facebook.com/1276327615/picture/?type=large" alt="avatar"/></div>-->
+            <!--<p class="message-date">22.04.2014  23:33</p>-->
+            <!--<div class="body">-->
+                <!--<div class="audiowave"></div>-->
+                <!--<p class="time">0:00 / 0:43</p>-->
+                <!--<div class="controls _paused">-->
+                    <!--<div>-->
+                        <!--<button class="play"><i class="fa fa-play"></i></button>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<button class="backward"><i class="fa fa-backward"></i></button>-->
+                        <!--<button class="pause"><i class="fa fa-pause"></i></button>-->
+                        <!--<button class="forward"><i class="fa fa-forward"></i></button>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="playback-position"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <div id="new-message">
+
+        <div id="message-input">
+            <textarea name="" id="userMessage" cols="30" rows="10" placeholder="написать сообщение.." data-threadId="{{_id}}"></textarea>
+            <button id="add-smile" class="smile-hover"><i class="fa fa-smile-o"></i></button>
+            <button id="add-gif" class="gif-hover">gif</button>
+            <button id="add-more" class="more-hover"><i class="fa fa-caret-down"></i></button>
+        </div>
+
+        <div id="choose-smile" class="attach smile-hover">
+            <div class="angle"></div>
+            <div class="attach-cont rage">
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+            </div>
+        </div>
+        <div id="choose-gif" class="attach gif-hover">
+            <div class="angle"></div>
+            <div class="attach-cont meme">
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+                <div class="smile"></div>
+            </div>
+        </div>
+
+        <div id="choose-more" class="attach more-hover">
+            <div class="angle"></div>
+            <ul>
+                <li id="attach-photo">Добавить фото</li>
+                <li id="make-photo">Добавить еще</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="grad bottom"></div>
+    <div id="messageHeightMeter"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias beatae commodi cupiditate deserunt dolore doloremque ducimus ea eos et exercitationem, impedit nam necessitatibus neque nostrum odio officia omnis pariatur perspiciatis, possimus quod repellat temporibus, tenetur ullam veritatis voluptas voluptatem.</div></div>
+
+</template>
+
+
+<template name="message">
+
+    <div class="message {{getYours userId}}" data-id="{{_id}}">
+        <div class="avatar"><img src="http://graph.facebook.com/1276327615/picture/?type=large" alt="avatar"/></div>
+        <p class="message-date">{{showDate date}}</p>
+        <div class="body">
+            {{{message}}}
+        </div>
+    </div>
+
+</template>
+
+<template name="noThreads"></template>

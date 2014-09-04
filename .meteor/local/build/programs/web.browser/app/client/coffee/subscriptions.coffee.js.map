@@ -1,0 +1,2 @@
+)]}'
+{"version":3,"file":"/client/coffee/subscriptions.coffee.js","sources":["subscriptions.coffee"],"names":[],"mappings":";AAAA,MAAM,CAAC,SAAP,CAAiB,SAAjB;A","sourcesContent":["Meteor.subscribe 'threads'"]}

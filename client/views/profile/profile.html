@@ -1,0 +1,334 @@
+<template name="profile">
+
+    <section class="profile">
+
+        <input id="userId" type="hidden" value="{{userId}}"/>
+
+        <div class="top" style="background-image: url(http://d1jfn2lab933y3.cloudfront.net/{{backgroundImage}})">
+            {{>profileTop}}
+        </div>
+
+        <div class="main-info">
+            {{>profileMainInfo}}
+        </div>
+
+        <footer>
+            <div class="container">
+                This is footer!!
+            </div>
+        </footer>
+
+    </section>
+
+</template>
+
+
+<template name="profileTop">
+    <button id="showMenu" class="menu-toggle">
+        m i c r o c o s m
+    </button>
+    <button id="show-notifications" class="notifications-toggle">
+        <i class="fa fa-bell"></i>
+    </button>
+    <input id="changeBackground" type="file"/>
+    <h1 class="heading">
+        <div class="container">
+            <p>{{profile.firstName}} {{profile.secondName}}</p>
+
+            <div class="colors-cont">
+                <div id="dominant"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div class="info-short">
+                <p>77%</p>
+            </div>
+        </div>
+    </h1>
+    <div class="container">
+        <div class="avatar">
+            <img src="{{profile.avatar}}" alt="avatar"/>
+            <button class="view-pics"><i class="fa fa-camera"></i></button>
+        </div>
+        <ul class="controls">
+            <li>
+                <button><i class="fa fa-star"></i></button>
+            </li>
+            <li>
+                <button><i class="fa fa-envelope"></i></button>
+                <span>25</span>
+            </li>
+            <li>
+                <button><i class="fa fa-users"></i></button>
+            </li>
+            <li>
+                <button><i class="fa fa-heart"></i></button>
+                <span>3</span>
+            </li>
+        </ul>
+        <div class="tag-cloud-cont">
+            <div id="tag-cloud" class="tag-cloud"></div>
+            <ul class="pins">
+                <li class="_active"><div class="tltp">личность</div></li>
+                <li><div class="tltp">интересы</div></li>
+                <li><div class="tltp">ценности</div></li>
+            </ul>
+        </div>
+    </div>
+</template>
+
+
+<template name="profileMainInfo">
+
+    <nav class="top-menu">
+        <ul>
+            <li class="_active">{{working.personality}}<div></div></li>
+            <li>{{working.ideology}}<div></div></li>
+            <li>{{working.recomendations}}<div></div></li>
+        </ul>
+    </nav>
+
+
+    <div class="info-tabs">
+
+        <div class="info-tabs-cont">
+
+            <div id="personality" class="info-cont">
+                <div class="container">
+                    <div class="row">
+                        <aside>
+                            <nav class="context-nav sticky">
+                                <ul>
+                                    <li class="_active" data-target="main">Основное
+                                        <div></div>
+                                    </li>
+                                    {{#if currentUser.profile.tests.bigFive}}
+                                    <li data-target="psychology">Психология
+                                        <div></div>
+                                    </li>
+                                    {{/if}}
+                                    {{#if currentUser.profile.tests.astro}}
+                                    <li data-target="astrology">Астрология
+                                        <div></div>
+                                    </li>
+                                    {{/if}}
+                                    {{#if currentUser.profile.tests.johari}}
+                                    <li data-target="johari">Джохари
+                                        <div></div>
+                                    </li>
+                                    {{/if}}
+                                </ul>
+                                <button id="open-tests-menu"><i class="fa fa-plus"></i></button>
+                            </nav>
+                        </aside>
+                        <div style="min-height: 700px">
+
+                            {{>bigFiveOutput}}
+
+                            <article id="astrology" class="units">
+
+                                <h2>Астрология</h2>
+
+                                <div id="cosmogramm"></div>
+
+                                <h3>Астрологическая характеристика</h3>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio doloremque eaque inventore nesciunt odio sed temporibus voluptate. Accusantium culpa earum, eius, exercitationem magnam modi necessitatibus officiis perferendis reprehenderit vitae voluptates?</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dicta eligendi nesciunt nihil nostrum, omnis porro possimus quasi quo, ratione repellat saepe velit veniam?</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, repudiandae.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi deserunt eaque eius exercitationem incidunt inventore nobis rerum voluptatum. Asperiores beatae consectetur enim libero natus nemo perspiciatis voluptatibus. A consectetur cumque distinctio, dolore quia soluta.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ipsum non quis.</p>
+                            </article>
+
+                            {{>johariOutput}}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="personal-info" class="info-cont">
+                <div class="container">
+
+                    <div class="row">
+                        <aside>
+                            <nav class="context-nav">
+                                <ul>
+                                    <li class="_active">Мировоззрение
+                                        <div></div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </aside>
+                        <div>
+                            <article>
+                                <h2>Мировоззрение</h2>
+                                <h5>Какие 5 качеств в людях?</h5>
+                                <p>Преданность, открытость, прямолинейность, ум, настойчивость, доброту</p>
+                                <h5>Если бы вам сказали до конца жизни смотреть всего 3 фильма, что бы это было?</h5>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <aside>
+                            <nav class="context-nav">
+                                <ul>
+                                    <li class="_active">Предпочтения
+                                        <div></div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </aside>
+                        <div>
+                            <article>
+                                <h2>Предпочтения</h2>
+                                <p>Люблю кушать, всякие няшности!</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="personal-recomendations" class="info-cont">
+                <div class="container">
+                    <div class="row">
+                        <aside>
+                            <nav class="context-nav">
+                                <ul>
+                                    <li class="_active">Основное
+                                        <div></div>
+                                    </li>
+                                    <li>Психология
+                                        <div></div>
+                                    </li>
+                                    <li>Астрология
+                                        <div></div>
+                                    </li>
+                                    <li>Джохари
+                                        <div></div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </aside>
+                        <div>
+
+                            <div id="cosmogramm" class="units">
+
+                                <h2>Астрология</h2>
+
+                            </div>
+
+                            <div id="psychology" class="units">
+
+                                <h2>Психология</h2>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab architecto aut blanditiis culpa dolores et ex facilis fugiat harum, id libero, modi nisi optio perferendis quam quasi quis quisquam repellat reprehenderit sit vitae, voluptas!</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab architecto aut blanditiis culpa dolores et ex facilis fugiat harum quasi quis quisquam repellat reprehenderit sit vitae, voluptas!</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab architecto aut blanditiis culpa dolores et ex facilis fugiat harum quasi quis quisquam repellat reprehenderit, voluptas!</p>
+
+                            </div>
+
+                            <div id="johari" class="units">
+
+                                <h2>Джохари</h2>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab architecto aut blanditiis culpa dolores et ex facilis fugiat harum, id libero, modi nisi optio perferendis quam quasi quis quisquam repellat reprehenderit sit vitae, voluptas!</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab architecto aut blanditiis culpa dolores et ex facilis fugiat harum quasi quis quisquam repellat reprehenderit sit vitae, voluptas!</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab architecto aut blanditiis culpa dolores et ex facilis fugiat harum quasi quis quisquam repellat reprehenderit, voluptas!</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+
+<template name="johariOutput">
+
+    <article id="johari" class="units">
+
+        <h2>Джохари</h2>
+
+        <div id="johari-cont">
+
+            <p class="desc">ИЗВЕСТНО МНЕ</p>
+            <p class="desc">НЕИЗВЕСТНО МНЕ</p>
+            <p class="desc">ИЗВЕСТНО ОКРУЖАЮЩИМ</p>
+            <p class="desc">НЕИЗВЕСТНО ОКРУЖАЮЩИМ</p>
+
+            <div id="johari-graph">
+
+                <div class="sector">
+                    <div class="circle">
+                        <div id="open-sector" class="traits"></div>
+                    </div>
+                </div>
+                <div class="sector">
+                    <div class="circle">
+                        <div id="blind-sector" class="traits"></div>
+                    </div>
+                </div>
+                <div class="sector">
+                    <div class="circle">
+                        <div id="hidden-sector" class="traits"></div>
+                    </div>
+                </div>
+                <div class="sector">
+                    <div class="circle">
+                        <div id="unknown-sector" class="traits"></div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <p class="link">
+            Ссылка для друзей:<br/>
+            <span>http://microcosm.com/johari/{{currentUser._id}}</span>
+        </p>
+
+        <h3>Выводы</h3>
+        <p>Степень целостости личности весьма высока!</p>
+        <p>Как мы видим, черты в открытом секторе (5) преобладают над слепым сектором (3) и скрытым сектором (4)</p>
+        <p>Это говорит о том, что {{currentUser.profile.firstName}} является очень открытым человеком и не имеет ярко выраженных скрытых и незамечаемых сторон личности</p>
+        <p>Результат очень хороший, продолжайте в том же духе!</p>
+        <p>И все же мы видим такие черты как: милый, открытый, нетерпеливый в скрытом секторе, это говорит о том, что вы не афишируете эти черты, но при этом они являются частью вашей личности. Возможно вам стоит найти положительные моменты в этом и попытаться признать эти черты как часть своей индивидуальности</p>
+        <p>Также в <a class="tltp" data-tltp="Это то, что видят другие, но не замечаете вы">слепом секторе</a> мы видим страстность, инфантильность и фрустрацию, причем черта "фрустрированный" отметили 4 ваших друга. Это говорит о том, что стоит также обратить свое внимание на эти вещи </p>
+        <p>Вцелом все очень неплохо, продолжайте двигаться в том же духе!</p>
+        <button class="paid">$ подробный анализ</button>
+
+
+    </article>
+
+</template>
+
+
+
+<template name="bigFiveOutput">
+
+    <article id="psychology" class="units">
+
+        <h2>Психология</h2>
+
+        <div id="primary-output"></div>
+        <div id="secondary-output"></div>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab architecto aut blanditiis culpa dolores et ex facilis fugiat harum, id libero, modi nisi optio perferendis quam quasi quis quisquam repellat reprehenderit sit vitae, voluptas!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab architecto aut blanditiis culpa dolores et ex facilis fugiat harum quasi quis quisquam repellat reprehenderit sit vitae, voluptas!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab architecto aut blanditiis culpa dolores et ex facilis fugiat harum quasi quis quisquam repellat reprehenderit, voluptas!</p>
+
+    </article>
+
+</template>

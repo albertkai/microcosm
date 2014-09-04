@@ -1,0 +1,2 @@
+)]}'
+{"version":3,"file":"/collections/logs.coffee.js","sources":["logs.coffee"],"names":[],"mappings":";AAAA,IAAC,KAAD,GAAY,UAAM,CAAC,UAAP,CAAkB,MAAlB,CAAZ;A","sourcesContent":["@Logs = new Meteor.Collection('logs')"]}

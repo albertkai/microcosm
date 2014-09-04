@@ -1,0 +1,67 @@
+<template name="modal">
+
+    <div class="modal-overlay"></div>
+
+    <div class="modal-overlay higher"></div>
+
+    <div class="modal-page">
+
+        <div class="close-it"><i class="fa fa-times"></i></div>
+
+        <div class="modal-insert">
+            <div class="heading"><i class="fa fa-cogs"></i> Настройки</div>
+            <div class="body">
+                <aside>
+                    <ul class="tab-controls">
+                        <li class="_active">Основные</li>
+                        <li>Контакты</li>
+                        <li>Приватность</li>
+                        <li>Оповещения</li>
+                        <li>Черный список</li>
+                    </ul>
+                </aside>
+                <div class="modal-tabs">
+
+                    <div id="settings-info" class="modal-tab _visible">
+
+                        основные
+
+                        <form id="info-form"></form>
+
+                    </div>
+
+                    <div  id="settings-contacts" class="modal-tab">
+
+                        контакты
+
+                        <form id="contacts-form"></form>
+
+                    </div>
+
+                    <div id="settings-privacy" class="modal-tab">
+
+                        приватность
+
+                        <form id="privacy-form"></form>
+
+                    </div>
+
+                    <div id="settings-notify" class="modal-tab">
+
+                        пароль
+
+                        <form id="notify-form"></form>
+
+                    </div>
+
+                    <div id="settings-ban" class="modal-tab">
+                        Черный список
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</template>

@@ -1,0 +1,2 @@
+)]}'
+{"version":3,"file":"/collections/notifications.coffee.js","sources":["notifications.coffee"],"names":[],"mappings":";AAAA,IAAC,cAAD,GAAqB,UAAM,CAAC,UAAP,CAAkB,eAAlB,CAArB;A","sourcesContent":["@Notifications = new Meteor.Collection('notifications')"]}
